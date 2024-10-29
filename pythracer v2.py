@@ -45,9 +45,9 @@ def menu(title, prompt, options):
     action = input(prompt)
     if action in options:
        return action
-    else: 
+    else:
         print(f"{action} is not an option")
-        opt1 = menu("Select a Difficulty", "Difficulty selected: ", difficultyoptions)  
+        return None
     
 
 def choosedifficulty(difficulty):
@@ -59,11 +59,13 @@ def choosedifficulty(difficulty):
             elif diff == "medium":
                 return choosetext(medium)
             elif diff == "hard":
-                return choosetext(hard)
+                return choosetext(hard)   
         else:
-             action = menu("Invalid difficulty", "Option: ", options)
-             if action == "q":
+            action = menu("Invalid difficulty", "Option: ", options)
+            if action == "q":
                 break
+            if action == "r":
+                return "error"
 
 def startgame():
     start_time = time.time()
